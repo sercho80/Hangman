@@ -52,6 +52,9 @@ class Game {
     gameStatus = (mistakeCounter < MAX_MISTAKES) ? Status.playing : Status.lost;
     missedLetters =
         TxtProcessor.missedLetters(keyword, letterTrialList); // ~ "a i t"
+    if (guessedLetters == keyword) {
+      gameStatus == Status.won;
+    }
   }
 
   void render_game() {
