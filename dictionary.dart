@@ -6,7 +6,7 @@ class Dictionary {
    *     p.ej. descargado de https://random-word-api.herokuapp.com/all
    * (3) acceso a un service REST que devuelva una palabra aleatoria
    *     p.ej. https://random-word-api.herokuapp.com/word
-   * La palabra devuelta debe ser aleatoria.
+   * La palabra devuelta debe ser aleatoria. @sercho80
    */
   String makeRandomWord() {
     return "bullseye"; // stub

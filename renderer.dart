@@ -11,7 +11,7 @@ class Renderer {
 
   /*
    * #7. Hay que representar correctamente la horca
-   * teniendo en cuenta la clase Gallows.
+   * teniendo en cuenta la clase Gallows. @ocontrerasjdam1
    */
   void drawGame(int mistakes, String missed, String guessed) {
     print("Te quedan ${max_mistakes - mistakes} fallos.");

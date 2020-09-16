@@ -41,7 +41,7 @@ class Game {
   /*
    * #8. Hay que comprobar si se ha ganado y
    * en ese caso actualizar el estado
-   * para que salga del game loop.
+   * para que salga del game loop. @InigoAguirre
    */
   void update_game() {
     if (!TxtProcessor.isNewLetterInList(inputLetter, letterTrialList)) return;
