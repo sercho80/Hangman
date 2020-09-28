@@ -53,8 +53,7 @@ class Game {
     missedLetters =
         TxtProcessor.missedLetters(keyword, letterTrialList); // ~ "a i t"
     if (gameStatus == Status.won) {
-      // ??????
-      estado.actualizar();
+      renderer.drawSuccess();
     }
   }
 
