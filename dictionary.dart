@@ -11,11 +11,11 @@ class Dictionary {
    * (3) acceso a un service REST que devuelva una palabra aleatoria
    *     p.ej. https://random-word-api.herokuapp.com/word
    * La palabra devuelta debe ser aleatoria. @sercho80
-   */
+   
   void main() {
     print(makeRandomWord());
   }
-
+  */
   Future<String> aleatoria() async {
     String palabra = "";
     Uri zelda = Uri.parse("https://random-word-api.herokuapp.com/word");
