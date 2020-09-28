@@ -44,7 +44,7 @@ class TxtProcessor {
   static String missedLetters(String keyword, List<String> letterTrialList) {
     var missedLetters = "";
     for (int i = 0; i < letterTrialList.length; i++) {
-      if (isLetterInWord(letterTrialList[i], keyword)) {
+      if (!isLetterInWord(letterTrialList[i], keyword)) {
         missedLetters = "$missedLetters ${letterTrialList[i]}";
       }
     }

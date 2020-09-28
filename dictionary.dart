@@ -1,3 +1,7 @@
+import 'dart:io';
+import 'dart:convert';
+import 'dart:async';
+
 class Dictionary {
   /*
    * #1. Se puede tener:
@@ -8,7 +12,25 @@ class Dictionary {
    *     p.ej. https://random-word-api.herokuapp.com/word
    * La palabra devuelta debe ser aleatoria. @sercho80
    */
+  void main() {
+    print(makeRandomWord());
+  }
+
+  Future<String> aleatoria() async {
+    String palabra = "";
+    Uri zelda = Uri.parse("https://random-word-api.herokuapp.com/word");
+    HttpClientRequest req = await new HttpClient().getUrl(zelda);
+    HttpClientResponse res = await req.close();
+    Stream dec = res.transform(utf8.decoder);
+    await for (var l in dec) {
+      palabra += l;
+    }
+    return palabra.substring(2, palabra.length - 2);
+  }
+
   String makeRandomWord() {
-    return "bullseye"; // stub
+    String palabra = "";
+    aleatoria().then((value) => palabra = value);
+    return palabra;
   }
 }
