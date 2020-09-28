@@ -13,12 +13,67 @@ class TxtProcessor {
    * No es sensitivo a mayúsculas y minúsculas, la 'a' y la 'A' son igual. @InigoAguirre
    */
   static bool isNewLetterInList(String letter, List<String> letterTrialList) {
-    var letra[] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    var letra = [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "ñ",
+      "o",
+      "p",
+      "q",
+      "r",
+      "s",
+      "t",
+      "u",
+      "v",
+      "w",
+      "x",
+      "y",
+      "z",
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "Ñ",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z"
+    ];
     var i = 0;
-    while(i < letra.length){
-      if(letra[i] == initGuessed){
-        return true;// stub
-      }else{
+    while (i < letra.length) {
+      if (letra[i] == initGuessed) {
+        return true; // stub
+      } else {
         i++;
       }
     }
@@ -29,6 +84,9 @@ class TxtProcessor {
    * #4. Comprobar si una letra está en una palabra. @ocontrerasjdam1
    */
   static bool isLetterInWord(String letter, String word) {
+    if (word.contains(letter)) {
+      return true;
+    }
     return false; // stub
   }
 
@@ -41,27 +99,19 @@ class TxtProcessor {
    * devolverá "b u _ _ s e _ e" @acasadomdam1
    */
   static String guessedLetters(String keyword, List<String> letterTrialList) {
-    
     String resul = "";
 
-    for(int i = 0 ; i < keyword.length ; i++)
-    {
-      for(int j = 0 ; j < letterTrialList.length ; j++)
-      {
-        if(letterTrialList[j] == keyword(i))
-        {
-          resul += keyword(i) + " ";
-        } 
-        else
-        {
+    for (int i = 0; i < keyword.length; i++) {
+      for (int j = 0; j < letterTrialList.length; j++) {
+        if (letterTrialList[j] == keyword[i]) {
+          resul += keyword[i] + " ";
+        } else {
           resul += "_ ";
         }
-        
       }
     }
     resul = resul.substring(0, resul.length - 1);
-    
-    
+
     return resul;
   }
 
