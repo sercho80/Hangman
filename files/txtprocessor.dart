@@ -22,8 +22,7 @@ class TxtProcessor {
    * #4. Comprobar si una letra está en una palabra. @ocontrerasjdam1
    */
   static bool isLetterInWord(String letter, String word) {
-    bool a = word.contains(letter.toUpperCase());
-    return a;
+    return word.contains(letter.toUpperCase());
   }
 
   /*
