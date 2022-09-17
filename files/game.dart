@@ -6,14 +6,14 @@ import 'txtprocessor.dart';
 class Game {
   static const MAX_MISTAKES = 10;
 
-  var gameStatus = Status.playing;
-  String inputLetter;
+  late String inputLetter;
+  late String guessedLetters;
+  late String missedLetters;
+  late String keyword;
+  var letterTrialList = <String>[];
   var renderer = new Renderer(MAX_MISTAKES);
-  var letterTrialList = new List<String>();
+  var gameStatus = Status.playing;
   int mistakeCounter = 0;
-  String guessedLetters;
-  String missedLetters;
-  String keyword;
 
   void run(String keyword) {
     init(keyword);
@@ -44,17 +44,18 @@ class Game {
    * para que salga del game loop. @InigoAguirre
    */
   void update_game() {
+    if (guessedLetters.contains(inputLetter.toUpperCase()))
+      print("Ya has adivinado esa letra :/");
     if (!TxtProcessor.isNewLetterInList(inputLetter, letterTrialList)) return;
-    letterTrialList.add(inputLetter);
-    if (!TxtProcessor.isLetterInWord(inputLetter, keyword)) mistakeCounter++;
+    letterTrialList.add(inputLetter.toUpperCase());
+    if (!TxtProcessor.isLetterInWord(inputLetter.toUpperCase(), keyword))
+      mistakeCounter++;
     guessedLetters = TxtProcessor.guessedLetters(
         keyword, letterTrialList); // ~ "b u _ _ s e _ e"
     gameStatus = (mistakeCounter < MAX_MISTAKES) ? Status.playing : Status.lost;
     missedLetters =
         TxtProcessor.missedLetters(keyword, letterTrialList); // ~ "a i t"
-    if (gameStatus == Status.won) {
-      renderer.drawSuccess();
-    }
+    if (!guessedLetters.contains("_")) gameStatus = Status.won;
   }
 
   void render_game() {
@@ -62,7 +63,7 @@ class Game {
   }
 
   void clean_up() {
-    if (gameStatus == Status.lost) renderer.drawFailure();
-    if (gameStatus == Status.won) renderer.drawSuccess();
+    if (gameStatus == Status.lost) renderer.drawFailure(keyword);
+    if (gameStatus == Status.won) renderer.drawSuccess(mistakeCounter);
   }
 }

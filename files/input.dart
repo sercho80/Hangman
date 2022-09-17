@@ -12,39 +12,11 @@ class Input {
     stdin.lineMode = false;
     stdout.write("Letra: ");
     int c = stdin.readByteSync(); // 10=Enter, 27=Esc
-    List<String> aux = [
-      "a",
-      "b",
-      "c",
-      "d",
-      "e",
-      "f",
-      "g",
-      "h",
-      "i",
-      "j",
-      "k",
-      "l",
-      "m",
-      "n",
-      "ñ",
-      "o",
-      "p",
-      "q",
-      "r",
-      "t",
-      "u",
-      "v",
-      "w",
-      "x",
-      "y",
-      "z"
-    ];
+    RegExp exp = new RegExp(r'^[a-zA-Z]+$');
     String s = String.fromCharCode(c);
-    if (!aux.contains(s.toLowerCase())) {
+    if (!exp.hasMatch(s)) {
       s = "*";
     }
-    print(s);
     return s;
   }
 }
