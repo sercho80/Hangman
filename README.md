@@ -4,7 +4,7 @@ A simple Hangman console game
 
 ### Setup instructions
 
-You need to have installed dart compiler
+You need to have installed dart
 
 ### Usage
 
